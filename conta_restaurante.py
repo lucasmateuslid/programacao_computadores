@@ -7,6 +7,9 @@ print("\nTroco total: R$ {:.2f}".format(troco))
 # Considerando só a parte inteira do troco
 troco_int = int(troco)
 
+n200 = troco_int // 200
+troco_int = troco_int % 200
+
 n100 = troco_int // 100
 troco_int = troco_int % 100
 
@@ -28,6 +31,7 @@ troco_int = troco_int % 2
 n1 = troco_int // 1
 
 print("\nCédulas para devolver:")
+print("Notas de 200:", n200)
 print("Notas de 100:", n100)
 print("Notas de 50:", n50)
 print("Notas de 20:", n20)
