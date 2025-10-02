@@ -1,3 +1,6 @@
+# este programar basico calcula o valor de um troco de restaurante
+# ele foi feito por Lucas Mateus em set/2025
+
 valorConta = float(input("Digite o valor da conta do cliente: "))
 valorRecebido = float(input("Digite o valor recebido pelo cliente: "))
 # Calcula o troco
