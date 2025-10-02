@@ -8,15 +8,28 @@ n4 = int(input("Digite o quarto número: "))
 validN4 = n4 % 2
 
 somarPar = 0
-if validN1 == 0:
-    somarPar = somarPar + n1
-if validN2 == 0:
-    somarPar = somarPar + n2
-if validN3 == 0:
-    somarPar = somarPar + n3
-if validN4 == 0:
-    somarPar = somarPar + n4
-if somarPar > 0:
-    print("A soma dos números pares é: ", somarPar)
+somarImpar = 0 
+
+if somarPar == 0:
+    if validN1 == 0:
+        somarPar = somarPar + n1
+    if validN2 == 0:
+        somarPar = somarPar + n2
+    if validN3 == 0:
+        somarPar = somarPar + n3
+    if validN4 == 0:
+        somarPar = somarPar + n4
+    if somarPar > 0:
+        print("A soma dos números pares é: ", somarPar)
+if somarImpar == 0:
+    if validN1 != 0:
+        somarImpar = somarImpar + n1
+    if validN2 != 0:
+        somarImpar = somarImpar + n2
+    if validN3 != 0:
+        somarImpar = somarImpar + n3
+    if validN4 != 0:
+        somarImpar = somarImpar + n4
+    print("A soma dos números ímpares é: ", somarImpar)
 else:
-    print("Nenhum número par foi digitado.")
+    print("Nenhum número foi digitado.")
