@@ -1,7 +1,5 @@
 ---
 
-![Python Logo](https://www.python.org/static/community_logos/python-logo.png)  ![IFRN Logo](https://upload.wikimedia.org/wikipedia/commons/5/57/IFRN_logo.svg)
-
 # 🐍 Programação de Computadores – Repositório de Estudos
 
 Este repositório reúne **códigos, atividades e projetos desenvolvidos durante a disciplina de Programação de Computadores**, com o objetivo de **registrar minha evolução como estudante** e praticar a **linguagem Python**.
