@@ -51,6 +51,6 @@ if troco >= 1:
     if n1 >= 1:
         print("Moedas de 1: ", n1)
 elif troco < 0 :
-    print("A cozinha ta cheia de louça pra lavar")
+    print("Saldo insuficiente para cobrir a conta.")
 else:
     print("Sem valores a devolver.")
