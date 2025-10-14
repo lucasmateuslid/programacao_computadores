@@ -18,3 +18,4 @@ if ndiv == 2: # Se o número de divisores limitar e for igual a 2, o esse "Se" i
 else:
     print("O número inserido não é primo.")
     
+    
