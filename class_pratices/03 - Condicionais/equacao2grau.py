@@ -18,4 +18,4 @@ else:
         if delta_final > 0:
             print("As raizes da equação são: x1 =", x1," x2 = ",x2)
         else:
-            print("Só existe 1 raiz váli
+            print("Só existe 1 raiz válida")
