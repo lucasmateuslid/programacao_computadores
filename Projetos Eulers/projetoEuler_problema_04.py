@@ -13,10 +13,8 @@ Find the largest palindrome made from the product of two
 valor_produto01 = 100
 maiorPalindromo = 0
 check = ""
-eventContinuos = True
 fator_a = 0
 fator_b = 0
-
 
 while valor_produto01 <= 999:
     valor_produto02 = 100

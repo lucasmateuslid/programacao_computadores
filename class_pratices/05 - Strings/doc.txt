@@ -1,0 +1,44 @@
+Aula de Strings
+
+
+Definição
+    String é uma sequência de caracteres, usada para representar texto em programação.
+    Exemplo: "Olá, Mundo!", 'Python é divertido', """Strings podem ser definidas com aspas triplas"""
+
+Funções / Metodos
+    len(string) = Conta a quantidade de caracteres na string
+    string.lower() = Transforma todos os caracteres em minúsculo
+    string.upper() = Transforma todos os caracteres em maiúsculo
+    string.find("texto") = Procura o texto na string e retorna o índice inicial, se não encontrar retorna -1
+    string.replace("texto_antigo", "texto_novo") = Substitui o texto_antigo pelo texto_novo
+    string.split("separador") = Divide a string em uma lista, usando o separador especificado
+
+
+
+Indexação
+    string[0] = Primeiro caractere da string
+    string[-1] = Último caractere da string
+    string[0:5] = Substring do índice 0 ao 4 (5 não incluso)
+    string[::2] = Pega todos os caracteres, pulando de 2 em 2
+    string[::-1] = Inverte a string
+
+Fatiamento
+    string[inicio:fim:passo] = Extrai uma substring da string original
+        inicio = índice inicial (inclusivo)
+        fim = índice final (exclusivo)
+        passo = intervalo entre os caracteres
+
+Número associado com caractere, 
+    cada caractere tem um número associado, tabela ASCII ou Unicode
+    ord("A") = Retorna o número associado ao caractere "A" (65)
+    chr(65) = Retorna o caractere associado ao número 65 ("A")
+    Exemplos:
+        ord("a") = 97
+        chr(97) = "a"
+        ord(" ") = 32
+        chr(32) = " "
+    Usos comuns:
+        Manipulação de caracteres especiais
+        Criação de algoritmos de criptografia simples
+        Conversão entre diferentes formatos de texto
+Escape 

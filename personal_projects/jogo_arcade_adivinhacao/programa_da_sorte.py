@@ -1,10 +1,21 @@
 # -*- coding: utf-8 -*-
-import tkinter as tk
-from tkinter import ttk, simpledialog, messagebox
+import os
 import random
-import pygame
-import time
 import threading
+import time
+import tkinter as tk
+import tkinter.ttk as ttk
+import tkinter.messagebox as messagebox
+import tkinter.simpledialog as simpledialog
+import pygame
+
+# expose ttk, messagebox and simpledialog under tk so existing code using tk.ttk / tk.messagebox / tk.simpledialog keeps working
+tk.ttk = ttk
+tk.messagebox = messagebox
+tk.simpledialog = simpledialog
+```
+import time
+import threading 
 import os
 
 # ====== CONFIGURAÇÃO DE SONS ======
@@ -65,7 +76,7 @@ def atualizar_ranking(nome, pontos):
 
 def exibir_ranking():
     texto = "\n".join([f"{i+1}. {nome} — {pontos} pts" for i, (nome, pontos) in enumerate(ranking)]) or "Nenhum jogador ainda."
-    messagebox.showinfo("Ranking de Jogadores", texto)
+    tk.messagebox.showinfo("Ranking de Jogadores", texto)
 
 # ====== FUNÇÕES PRINCIPAIS ======
 def iniciar_jogo():
@@ -80,20 +91,20 @@ def iniciar_jogo():
         "Médio": (1, 5000, 20),
         "Difícil": (-10000, 10000, 15),
         "Insano": (-1000000, 1000000, 10),
-        "Caos": (-10000000, 10000000, 8),
+        "Caos": (-10000000, 10000000, 5),
         "Tempo": (-100000000, 100000000, 25),
         "Roubo": (-1000000, 1000000, 20),
         "Puzzle": (-5000, 5000, 15)
     }
 
     if dificuldade not in modos:
-        messagebox.showwarning("Erro", "Selecione uma dificuldade válida.")
+        tk.messagebox.showwarning("Erro", "Selecione uma dificuldade válida.")
         return
 
     limite_inferior, limite_superior, max_tentativas = modos[dificuldade]
-    jogador_atual = simpledialog.askstring("Jogador", "Digite seu nome:")
+    jogador_atual = tk.simpledialog.askstring("Jogador", "Digite seu nome:")
     if not jogador_atual:
-        messagebox.showinfo("Aviso", "É necessário informar um nome para jogar.")
+        tk.messagebox.showinfo("Aviso", "É necessário informar um nome para jogar.")
         return
 
     numero_secreto = random.randint(limite_inferior, limite_superior)
@@ -143,7 +154,7 @@ def verificar_palpite(event=None):
     global contador_tentativas, limite_inferior, limite_superior, game_started, pontuacao, numero_secreto
 
     if not game_started:
-        messagebox.showinfo("Aviso", "Clique em 'Iniciar Jogo' primeiro.")
+        tk.messagebox.showinfo("Aviso", "Clique em 'Iniciar Jogo' primeiro.")
         return
 
     try:
@@ -225,11 +236,11 @@ frame_ctrl.columnconfigure(1, weight=1)
 
 tk.Label(frame_ctrl, text="Modo:", font=("Courier New", 10, "bold"), bg="#000", fg="#FFD700").grid(row=0, column=0, padx=5)
 dificuldade_var = tk.StringVar(value="Fácil")
-menu = ttk.Combobox(frame_ctrl, textvariable=dificuldade_var, values=["Fácil", "Médio", "Difícil", "Insano", "Caos", "Tempo", "Roubo", "Puzzle"], width=16, state="readonly")
+menu = tk.ttk.Combobox(frame_ctrl, textvariable=dificuldade_var, values=["Fácil", "Médio", "Difícil", "Insano", "Caos", "Tempo", "Roubo", "Puzzle"], width=16, state="readonly")
 menu.grid(row=0, column=1, padx=5, sticky="w")
 
 # --- Estilo dos botões ---
-style = ttk.Style()
+style = tk.ttk.Style()
 style.theme_use("clam")
 style.configure("Arc.TButton",
                 font=("Courier New", 10, "bold"),
@@ -241,14 +252,14 @@ style.map("Arc.TButton",
           background=[("active", "#00FFFF")],
           foreground=[("active", "#000000")])
 
-ttk.Button(frame_ctrl, text="INICIAR", style="Arc.TButton", command=iniciar_jogo).grid(row=0, column=2, padx=8)
-ttk.Button(frame_ctrl, text="RANKING", style="Arc.TButton", command=exibir_ranking).grid(row=0, column=3, padx=8)
+tk.ttk.Button(frame_ctrl, text="INICIAR", style="Arc.TButton", command=iniciar_jogo).grid(row=0, column=2, padx=8)
+tk.ttk.Button(frame_ctrl, text="RANKING", style="Arc.TButton", command=exibir_ranking).grid(row=0, column=3, padx=8)
 
 # --- ENTRADA ---
 entrada = tk.Entry(janela, font=("Courier New", 14, "bold"), justify="center", bg="#111", fg="#00FFAA", insertbackground="#00FFAA")
 entrada.grid(row=2, column=0, sticky="ew", padx=300, pady=8)
 entrada.bind("<Return>", verificar_palpite)
-ttk.Button(janela, text="CONFIRMAR PALPITE", style="Arc.TButton", command=verificar_palpite).grid(row=3, column=0, pady=6)
+tk.ttk.Button(janela, text="CONFIRMAR PALPITE", style="Arc.TButton", command=verificar_palpite).grid(row=3, column=0, pady=6)
 
 label_resultado = tk.Label(janela, text="Clique em 'Iniciar' para começar.", font=("Courier New", 11), bg="#000", fg="#888")
 label_resultado.grid(row=4, column=0, sticky="n", pady=(10, 2))
@@ -261,7 +272,7 @@ main_frame.columnconfigure(0, weight=3)
 main_frame.columnconfigure(1, weight=1)
 main_frame.rowconfigure(1, weight=1)
 
-barra = ttk.Progressbar(main_frame, orient="horizontal", mode="determinate")
+barra = tk.ttk.Progressbar(main_frame, orient="horizontal", mode="determinate")
 barra.grid(row=0, column=0, columnspan=2, sticky="ew", pady=5)
 
 tk.Label(main_frame, text="Histórico de Tentativas:", font=("Courier New", 10, "bold"), bg="#000", fg="#FFDD00").grid(row=1, column=0, sticky="nw")
