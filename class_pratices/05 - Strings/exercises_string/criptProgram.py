@@ -1,10 +1,17 @@
-#Criar um programa que códifica uma mensagem substituindo cada letra pela próxima letra no alfabeto selecionado pela letra.
+mensagem = input("Digite a mensagem a ser criptografada: ")
+chave = input("Digite a chave de criptografia: ")
+resultado = ""
 
-messageToCript = input("Digite a sua mensagem para enviar ao aliados: ")
-cryptKey = input("Qual a senha?: ")
+for i in range(len(mensagem)):
+    char = mensagem[i]
+    if char.isalpha():
+        deslocamento = ord(chave[i % len(chave)].lower()) - ord('a')
+        if char.islower():
+            novo_char = chr((ord(char) - ord('a') + deslocamento) % 26 + ord('a'))
+        else:
+            novo_char = chr((ord(char) - ord('A') + deslocamento) % 26 + ord('A'))
+        resultado += novo_char
+    else:
+        resultado += char
+print("Mensagem criptografada:", resultado.capitalize())
 
-alphabet = "abcdefghijklmnopqrstuvwxyz"
-
-
-def CryptMessage():
-    
